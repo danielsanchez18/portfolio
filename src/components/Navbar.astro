@@ -1,0 +1,46 @@
+---
+import { Button } from "./ui/button"
+import { ThemeToggle } from "./ThemeToggle"
+import { MobileMenu } from "./MobileMenu"
+
+const links = [
+    { href: "/", label: "Inicio" },
+    { href: "/proyectos", label: "Proyectos" },
+    { href: "/experiencia", label: "Experiencia" },
+    { href: "/blog", label: "Blog" },
+]
+---
+<nav class="w-full">
+    <div class="max-w-350 mx-auto px-5 py-3 flex items-center gap-5">
+
+        <!-- Menu -->
+        <div class="hidden md:flex items-center">
+            {links.map((link) => ( 
+                <Button
+                    variant="ghost"
+                    className="
+                        h-fit text-base uppercase 
+                        text-neutral-800 hover:text-black hover:underline hover:bg-neutral-100 
+                        dark:text-neutral-100 dark:hover:text-white dark:hover:bg-neutral-900
+                        px-4 py-2">
+                    {link.label}
+                </Button>
+            ))}
+        </div>
+
+        <MobileMenu client:load />
+
+        <!-- Contacto y Toggle Theme -->
+        <div class="ml-auto flex items-center gap-1">
+            <div class="hidden md:inline-flex">
+                <ThemeToggle client:load />
+            </div>
+            
+            <Button
+                className="h-fit text-base px-4 py-2 uppercase">
+                Contacto
+            </Button>
+        </div>
+
+    </div>
+</nav>
