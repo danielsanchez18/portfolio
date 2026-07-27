@@ -1,17 +1,33 @@
+---
+const logoUrl = new URL("/logo-meta-dark.svg", Astro.url).href
+---
+
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+		<link rel="icon" type="image/svg+xml" href="/logo-meta-dark.svg" data-theme-icon />
+		<link rel="apple-touch-icon" href="/logo-meta-dark.svg" />
+		<meta property="og:image" content={logoUrl} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:image" content={logoUrl} />
 		<meta name="generator" content={Astro.generator} />
 		<title>Daniel Sánchez - Software Engineer</title>
 		<script is:inline>
-			const theme = localStorage.getItem("theme")
-			if (theme === "dark" || (!theme && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-				document.documentElement.classList.add("dark")
+			const _theme = localStorage.getItem("theme")
+			const _isDark = _theme === "dark" || (!_theme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+			if (_isDark) document.documentElement.classList.add("dark")
+
+			const _icons = { light: "/logo-meta-dark.svg", dark: "/logo-meta-dark.svg" }
+			function _updateFavicon() {
+				const link = document.querySelector('link[data-theme-icon]')
+				if (link) {
+					link.href = _icons[document.documentElement.classList.contains("dark") ? "dark" : "light"]
+				}
 			}
+			_updateFavicon()
+			new MutationObserver(_updateFavicon).observe(document.documentElement, { attributes: true, attributeFilter: ["class"] })
 		</script>
 	</head>
 	<body>
