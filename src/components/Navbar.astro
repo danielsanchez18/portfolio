@@ -16,15 +16,17 @@ const links = [
         <!-- Menu -->
         <div class="hidden md:flex items-center">
             {links.map((link) => ( 
-                <Button
-                    variant="ghost"
-                    className="
-                        h-fit text-base uppercase 
-                        text-neutral-800 hover:text-black hover:underline hover:bg-neutral-100 
-                        dark:text-neutral-100 dark:hover:text-white dark:hover:bg-neutral-900
-                        px-4 py-2">
-                    {link.label}
-                </Button>
+                <a href={link.href}>
+                    <Button
+                        variant="ghost"
+                        className="
+                            h-fit text-base uppercase 
+                            text-neutral-800 hover:text-black hover:underline hover:bg-neutral-100 
+                            dark:text-neutral-100 dark:hover:text-white dark:hover:bg-neutral-900
+                            px-4 py-2">
+                        {link.label}
+                    </Button>
+                </a>
             ))}
         </div>
 
