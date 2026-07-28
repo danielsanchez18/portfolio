@@ -1,48 +1,36 @@
 ---
-import { Button } from "./ui/button"
 import { ThemeToggle } from "./ThemeToggle"
-import { MobileMenu } from "./MobileMenu"
-
-const links = [
-    { href: "/", label: "Inicio" },
-    { href: "/proyectos", label: "Proyectos" },
-    { href: "/experiencia", label: "Experiencia" },
-    { href: "/blog", label: "Blog" },
-]
 ---
-<nav class="w-full">
-    <div class="max-w-350 mx-auto px-5 py-3 flex items-center gap-5">
 
-        <!-- Menu -->
-        <div class="hidden md:flex items-center">
-            {links.map((link) => ( 
-                <a href={link.href}>
-                    <Button
-                        variant="ghost"
-                        className="
-                            h-fit text-base uppercase 
-                            text-neutral-800 hover:text-black hover:underline hover:bg-neutral-100 
-                            dark:text-neutral-100 dark:hover:text-white dark:hover:bg-neutral-900
-                            px-4 py-2">
-                        {link.label}
-                    </Button>
-                </a>
-            ))}
+<nav class="fixed w-full px-4 py-3 z-50">
+
+    <div 
+        class="
+        bg-accent rounded-full w-full max-w-4xl mx-auto pl-5 px-3 py-2 flex items-center gap-3 border">
+    
+        
+        <a href="" class="text-sm hover:underline">
+            Proyectos
+        </a>
+        
+        <a href="" class="text-sm hover:underline">
+            Experiencia
+        </a>
+    
+        <a href="" class="text-sm hover:underline">
+            Blog
+        </a>
+    
+        <div class="ml-auto flex items-center">
+            <ThemeToggle client:load />
         </div>
-
-        <MobileMenu client:load />
-
-        <!-- Contacto y Toggle Theme -->
-        <div class="ml-auto flex items-center gap-1">
-            <div class="hidden md:inline-flex">
-                <ThemeToggle client:load />
-            </div>
-            
-            <Button
-                className="h-fit text-base px-4 py-2 uppercase">
-                Contacto
-            </Button>
-        </div>
-
+    
+        <button 
+            class="
+            bg-primary/5 hover:bg-primary/15 backdrop-blur-sm text-accent-foreground px-3 py-1.5 text-sm rounded-full
+            border
+            ">
+            Contacto
+        </button>
     </div>
 </nav>

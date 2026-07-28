@@ -1,62 +1,22 @@
 ---
-import Hero from '@/sections/Hero.astro';
 import Layout from '@/layouts/Layout.astro';
+import '@/styles/global.css';
 import Navbar from '@/components/Navbar.astro';
-import '../styles/global.css';
-import FeaturedProjects from '@/sections/FeaturedProjects.astro';
-import AllProjects from '@/sections/AllProjects.astro';
+import Hero from '@/sections/Hero.astro';
+import Projects from '@/sections/Projects.astro';
 import Experience from '@/sections/Experience.astro';
+import Blog from '@/sections/Blog.astro';
 import Tools from '@/sections/Tools.astro';
-import Contact from '@/sections/Contact.astro';
 import Footer from '@/components/Footer.astro';
-import type { Project } from '@/sections/FeaturedProjects.astro';
-
-const featured: Project[] = [
-	{
-		title: "Escapify",
-		year: "Build - 2026",
-		description: "Infraestructura e-commerce multi-tenant moderna y escalable. Construida con un stack enfocado en rendimiento de servidor y tipado estricto",
-		tags: ["Next.js", "NestJS", "Prisma"],
-	},
-	{
-		title: "Las Rocas",
-		year: "2026",
-		description: "Plataforma e-commerce y sitio web institucional para el rubro gastronómico. Integra un flujo completo de ventas en línea con la identidad digital del restaurante.",
-		tags: ["Angular", "SpringBoot", "MySQL", "WebSockets"],
-	},
-	{
-		title: "Sistema de Control Epsel",
-		year: "2026",
-		description: "Plataforma de gestión y control operativo. Estructura backend robusta conectada a una interfaz de usuario dinámica para el manejo eficiente de procesos.",
-		tags: ["Angular", "SpringBoot", "MySQL", "OCR", "Python", "Microservicios"],
-	},
-	{
-		title: "FoxCode Website",
-		year: "2026",
-		description: "Sitio web oficial y landing page de alto rendimiento para mi propia startup tecnológica. Arquitectura orientada a la velocidad de carga y optimización SEO.",
-		tags: ["Astro", "Tailwind", "TypeScript", "Frontend", "UI/UX"],
-	},
-	{
-		title: "Ecommerce System",
-		year: "2025",
-		description: "Sistema integral diseñado específicamente para la gestión de backoffice de comercio electrónico, optimizando la administración interna y el control de datos.",
-		tags: ["Angular", "SpringBoot", "MySQL", "WebSockets"],
-	},
-]
 ---
 
 <Layout>
-	<div class="flex flex-col h-dvh">
-		<Navbar />
-		<div class="flex-1 h-full">
-			<Hero />
-		</div>
-	</div>
-	<FeaturedProjects projects={featured} />
-	<AllProjects />
+	<Navbar />
+	<Hero />
+	<Projects />
 	<Experience />
+	<Blog />
 	<Tools />
-	<Contact />
 	<Footer />
 </Layout>
 

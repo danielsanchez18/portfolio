@@ -1,0 +1,44 @@
+---
+import type { StaffMember } from "@/core/StaffData";
+
+interface Props extends StaffMember {}
+
+const { name, role, imageUrl } = Astro.props;
+---
+
+<!-- Staff Card -->
+<button class="relative flex flex-col items-center hover:scale-105 transition-transform duration-300">
+    <div class="relative w-68 h-68 flex items-center justify-center">
+        <svg
+            class="absolute w-full h-full animate-spin-slow"
+            viewBox="0 0 200 200"
+        >
+            <path
+                id={`circlePath-${name.replace(/\s+/g, '-')}`}
+                d="M 100, 100 m -80, 0 a 80,80 0 1,1 160,0 a 80,80 0 1,1 -160,0"
+                fill="transparent"></path>
+            <text
+                class="dark:fill-white font-medium text-xs tracking-[0.2em] uppercase"
+            >
+                <textPath
+                    xlink:href={`#circlePath-${name.replace(/\s+/g, '-')}`}
+                    startOffset=""
+                    text-anchor="center"
+                >
+                    {role} 
+                </textPath>
+            </text>
+        </svg>
+
+        <div
+            class="w-48 h-48 rounded-full overflow-hidden bg-white/5"
+        >
+            <img
+                src={imageUrl}
+                alt={name}
+                class="w-full h-full object-cover"
+            />
+        </div>
+    </div>
+
+</button>
