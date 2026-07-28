@@ -27,7 +27,7 @@ const tech = techIcon[name]
 		<img
 			src={tech.icon}
 			alt={name}
-			class={`max-h-5 w-5 ${tech.invert ? "dark:invert" : ""}`}
+			class={`h-5 w-5 object-contain ${tech.invert ? "dark:invert" : ""}`}
 		/>
 	)}
 	<span class="px-1">{name}</span>
