@@ -1,5 +1,5 @@
 ---
-import TechBadge from "./TechBadge.astro"
+import CardContent from "./CardContent.astro"
 
 export interface Project {
 	title: string
@@ -8,6 +8,7 @@ export interface Project {
 	tags: string[]
 	thumbnail?: string
 	badge?: string
+	url?: string
 }
 
 export interface Props {
@@ -17,26 +18,20 @@ export interface Props {
 const { project: p } = Astro.props
 ---
 
-<article class="
-	bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
-	rounded-3xl border text-start flex flex-col h-full
-">
-
-	{p.thumbnail ? (
-		<img src={p.thumbnail} alt={p.title} class="bg-accent w-full h-60 rounded-lg object-cover" />
-	) : (
-		<div class="bg-accent w-full h-60 rounded-lg" />
-	)}
-
-	<div class="space-y-4 py-2 mt-2">
-		<div class="flex flex-wrap items-center gap-2">
-			<span class="text-xs px-3 py-1 rounded-full font-mono border bg-white dark:bg-accent">{p.badge ?? p.year}</span>
-			<span class="text-base">{p.title}</span>
-		</div>
-		<p class="text-accent-foreground text-sm">{p.description}</p>
-		<div class="flex flex-wrap items-center gap-2">
-			{p.tags.map((tag) => <TechBadge name={tag} />)}
-		</div>
-	</div>
-
-</article>
+{p.url ? (
+	<a href={p.url} target="_blank" rel="noopener noreferrer" class="block h-full">
+		<article class="
+			bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
+			rounded-3xl border text-start flex flex-col h-full group
+		">
+			<CardContent project={p} />
+		</article>
+	</a>
+) : (
+	<article class="
+		bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
+		rounded-3xl border text-start flex flex-col h-full group
+	">
+		<CardContent project={p} />
+	</article>
+)}
