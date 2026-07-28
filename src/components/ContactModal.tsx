@@ -15,15 +15,12 @@ export function ContactModal({ open, onClose }: { open: boolean; onClose: () => 
 
   return (
     <>
-      <div className="fixed inset-0 z-40 bg-black/40 backdrop-blur-sm" onClick={onClose} />
+      <div className="fixed inset-0 z-40 bg-black/50 backdrop-blur-sm" onClick={onClose} />
       <div className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-50 w-[calc(100%-2rem)] max-w-sm">
-        <div className="bg-background/80 backdrop-blur-xl border border-border/30 rounded-2xl py-6 px-4 shadow-2xl space-y-5">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3 px-4">
-              <img src="/logo-meta.svg" alt="Profile" className="size-4 dark:invert" />
-              <h2 className="text-lg font-medium">Contacto</h2>
-            </div>
-            <button onClick={onClose} className="mr-3 text-muted-foreground hover:text-foreground transition">
+        <div className="bg-background backdrop-blur-xl border border-border rounded-2xl py-6 px-4 shadow-2xl space-y-5">
+          <div className="flex justify-between pl-4 pr-2">
+            <h2 className="text-lg font-medium">Contacto</h2>
+            <button onClick={onClose} className="text-muted-foreground hover:text-foreground transition">
               <X className="size-4" />
             </button>
           </div>

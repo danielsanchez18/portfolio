@@ -15,6 +15,10 @@ const tools: Tool[] = [
 	{ name: "PostgreSQL", icon: "/postgresql.webp" },
 	{ name: "Prisma", icon: "/prisma-orm.png" },
 	{ name: "MySQL", icon: "/mysql.svg", bg: true },
+	{ name: "CSS", icon: "/css.webp" },
+	{ name: "TypeScript", icon: "/typescript.webp" },
+	{ name: "Tailwind CSS", icon: "/tailwind.webp" },
+	{ name: "ShadCN", icon: "/shadcn.png", bg: true },
 ]
 ---
 
@@ -45,7 +49,11 @@ const tools: Tool[] = [
 
 <style>
 	.marquee-track {
-		animation: scroll 20s linear infinite;
+		animation: scroll 25s linear infinite;
+	}
+
+	.marquee-track:hover {
+		animation-play-state: paused;
 	}
 
 	@keyframes scroll {
