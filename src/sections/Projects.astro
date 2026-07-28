@@ -1,3 +1,57 @@
+---
+import ProjectCard from "@/components/ProjectCard.astro"
+import type { Project } from "@/components/ProjectCard.astro"
+
+const featured: Project[] = [
+	{
+		title: "Escapify",
+		year: "2026",
+		description: "Infraestructura e-commerce multi-tenant moderna y escalable. Construida con un stack enfocado en rendimiento de servidor y tipado estricto.",
+		tags: ["Next.js", "NestJS", "Prisma", "PostgreSQL", "JWT"],
+		badge: "Build",
+		thumbnail: "/projects/escapify.svg",
+	},
+	{
+		title: "Las Rocas Restaurante",
+		year: "2026",
+		description: "Plataforma e-commerce y sitio web institucional para el rubro gastronómico. Integra un flujo completo de ventas en línea con la identidad digital del restaurante.",
+		tags: ["Angular", "SpringBoot", "MySQL", "JWT"],
+		thumbnail: "/projects/lasrocas.svg",
+	},
+	{
+		title: "Epsel - Sistema de Gestión Operativa",
+		year: "2026",
+		description: "Plataforma de gestión y control operativo. Estructura backend robusta conectada a una interfaz de usuario dinámica para el manejo eficiente de procesos y lectura inteligente de datos.",
+		tags: ["Angular", "SpringBoot", "MySQL", "JWT", "Python", "Microservicios"],
+		thumbnail: "/projects/epsel.png",
+	},
+	{
+		title: "FoxCode - Website",
+		year: "2026",
+		description: "Sitio web oficial y landing page de alto rendimiento para mi propia startup tecnológica. Arquitectura orientada a la velocidad de carga y optimización SEO.",
+		tags: ["Astro", "Tailwind CSS", "ShadCN"],
+		badge: "2026",
+		thumbnail: "/projects/foxcode.png",
+	},
+	{
+		title: "E-Commerce System (Backoffice)",
+		year: "2026",
+		description: "Panel de control centralizado y desacoplado para la administración integral de comercio electrónico. Diseñado para gestionar inventarios, productos y ventas de forma independiente a la interfaz final del cliente.",
+		tags: ["Angular", "Tailwind CSS"],
+		badge: "2025",
+		thumbnail: "/projects/ecommerce.png",
+	},
+	{
+		title: "MPCH - Sistema de Gestión de Practicantes",
+		year: "2026",
+		description: "Plataforma desarrollada para el control administrativo de practicantes. Administra el registro de universidades, asignación de vacantes por área y el seguimiento de asistencia (entradas y salidas), automatizando la emisión de certificados al cumplir las horas requeridas.",
+		tags: ["Angular", "SpringBoot", "MySQL", "JWT"],
+		badge: "2024",
+		thumbnail: "/projects/mpch.png",
+	},
+]
+---
+
 <section id="proyectos" class="w-full">
     <div class="w-full max-w-4xl mx-auto px-5 pt-20 space-y-10">
 
@@ -6,169 +60,33 @@
             <p class="text-muted-foreground">Una selección de proyectos que muestran mi enfoque en la arquitectura de software y el desarrollo fullstack.</p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-5">
-
-            <button class="
-                bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
-                rounded-3xl border text-start transition flex flex-col
-                ">
-                
-                <div class="bg-accent w-full h-60 rounded-lg">
+        <div id="projects-grid" class="grid md:grid-cols-2 gap-5">
+            {featured.map((project, i) => (
+                <div class={i >= 4 ? "hidden more-item" : ""}>
+                    <ProjectCard project={project} />
                 </div>
-
-                <div class="space-y-4 py-2 mt-2">
-                    <div class="flex items-center gap-x-2">
-                        <p class="text-xs px-3 py-1 rounded-full font-mono border bg-white dark:bg-accent">Build</p>
-                        <p class="text-base">Escapify</p>
-                    </div>
-                    <p class="text-accent-foreground text-sm">
-                        Infraestructura e-commerce multi-tenant moderna y escalable. Construida con un stack enfocado en rendimiento de servidor y tipado estricto.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-2">
-                        <div class="text-sm px-2 py-1.5 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/next-js.svg" class="h-5 w-5 dark:invert" />
-                            <p class="px-1">Next.js</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/NestJS.svg" class="h-5 w-5" />
-                            <p class="px-1">NestJs</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/prisma-orm.png" class="h-5 w-5" />
-                            <p class="px-1">Prisma</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/postgresql.webp" class="h-5 w-5" />
-                            <p class="px-1">PostgreSQL</p>
-                        </div>
-                    </div>
-                </div>
-
-            </button>
-
-            <button class="
-                bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
-                rounded-3xl border text-start transition flex flex-col
-                ">
-                
-                <div class="bg-accent w-full h-60 rounded-lg">
-                </div>
-
-                <div class="space-y-4 py-2 mt-2">
-                    <div class="flex items-center gap-x-2">
-                        <p class="text-xs px-3 py-1 rounded-full font-mono border bg-white dark:bg-accent">2026</p>
-                        <p class="text-base">Las Rocas</p>
-                    </div>
-                    <p class="text-accent-foreground text-sm">
-                        Plataforma e-commerce y sitio web institucional para el rubro gastronómico. Integra un flujo completo de ventas en línea con la identidad digital del restaurante.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-2">
-                        <div class="text-sm px-2 py-1.5 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/angular.webp" class="h-5 w-5" />
-                            <p class="px-1">Angular</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/Spring_Boot.svg.webp" class="h-5 w-5" />
-                            <p class="px-1">SpringBoot</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/mysql.svg" class="h-5 w-5 dark:invert" />
-                            <p class="px-1">MySQL</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/jwt.webp" class="h-5 w-5" />
-                            <p class="px-1">JWT</p>
-                        </div>
-                    </div>
-                </div>
-
-            </button>
-
-            <button class="
-                bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
-                rounded-3xl border text-start transition flex flex-col
-                ">
-                
-                <div class="bg-accent w-full h-60 rounded-lg">
-                </div>
-
-                <div class="space-y-4 py-2 mt-2">
-                    <div class="flex items-center gap-x-2">
-                        <p class="text-xs px-3 py-1 rounded-full font-mono border bg-white dark:bg-accent">2026</p>
-                        <p class="text-base">Las Rocas</p>
-                    </div>
-                    <p class="text-accent-foreground text-sm">
-                        Plataforma e-commerce y sitio web institucional para el rubro gastronómico. Integra un flujo completo de ventas en línea con la identidad digital del restaurante.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-2">
-                        <div class="text-sm px-2 py-1.5 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/angular.webp" class="h-5 w-5" />
-                            <p class="px-1">Angular</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/Spring_Boot.svg.webp" class="h-5 w-5" />
-                            <p class="px-1">SpringBoot</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/mysql.svg" class="h-5 w-5 dark:invert" />
-                            <p class="px-1">MySQL</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/jwt.webp" class="h-5 w-5" />
-                            <p class="px-1">JWT</p>
-                        </div>
-                    </div>
-                </div>
-
-            </button>
-
-            <button class="
-                bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
-                rounded-3xl border text-start transition flex flex-col
-                ">
-                
-                <div class="bg-accent w-full h-60 rounded-lg">
-                </div>
-
-                <div class="space-y-4 py-2 mt-2">
-                    <div class="flex items-center gap-x-2">
-                        <p class="text-xs px-3 py-1 rounded-full font-mono border bg-white dark:bg-accent">2026</p>
-                        <p class="text-base">Las Rocas</p>
-                    </div>
-                    <p class="text-accent-foreground text-sm">
-                        Plataforma e-commerce y sitio web institucional para el rubro gastronómico. Integra un flujo completo de ventas en línea con la identidad digital del restaurante.
-                    </p>
-                    <div class="flex flex-wrap items-center gap-2">
-                        <div class="text-sm px-2 py-1.5 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/angular.webp" class="h-5 w-5" />
-                            <p class="px-1">Angular</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/Spring_Boot.svg.webp" class="h-5 w-5" />
-                            <p class="px-1">SpringBoot</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/mysql.svg" class="h-5 w-5 dark:invert" />
-                            <p class="px-1">MySQL</p>
-                        </div>
-                        <div class="text-sm px-2 py-1 rounded-full border bg-white dark:bg-accent flex items-center gap-x-0.5">
-                            <img src="/jwt.webp" class="h-5 w-5" />
-                            <p class="px-1">JWT</p>
-                        </div>
-                    </div>
-                </div>
-
-            </button>
+            ))}
         </div>
 
         <div class="flex justify-center">
-            <button class="
-                bg-primary/5 hover:bg-primary/15 backdrop-blur-sm text-accent-foreground px-4 py-2 text-sm rounded-full
-                border z-10
-                ">
+            <button
+                id="toggle-projects"
+                class="bg-primary/5 hover:bg-primary/15 backdrop-blur-sm text-accent-foreground px-4 py-2 text-sm rounded-full border z-10"
+            >
                 Ver más
             </button>
         </div>
 
     </div>
 </section>
+
+<script>
+    const btn = document.getElementById("toggle-projects")
+    const items = document.querySelectorAll(".more-item")
+
+    btn?.addEventListener("click", () => {
+        const expanded = btn.textContent === "Ver menos"
+        items.forEach((el) => el.classList.toggle("hidden", expanded))
+        btn.textContent = expanded ? "Ver más" : "Ver menos"
+    })
+</script>

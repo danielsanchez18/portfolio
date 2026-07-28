@@ -1,0 +1,42 @@
+---
+import TechBadge from "./TechBadge.astro"
+
+export interface Project {
+	title: string
+	year: string
+	description: string
+	tags: string[]
+	thumbnail?: string
+	badge?: string
+}
+
+export interface Props {
+	project: Project
+}
+
+const { project: p } = Astro.props
+---
+
+<button class="
+	bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
+	rounded-3xl border text-start transition flex flex-col h-full
+">
+
+	{p.thumbnail ? (
+		<img src={p.thumbnail} alt={p.title} class="bg-accent w-full h-60 rounded-lg object-cover" />
+	) : (
+		<div class="bg-accent w-full h-60 rounded-lg" />
+	)}
+
+	<div class="space-y-4 py-2 mt-2">
+		<div class="flex flex-wrap items-center gap-2">
+			<span class="text-xs px-3 py-1 rounded-full font-mono border bg-white dark:bg-accent">{p.badge ?? p.year}</span>
+			<span class="text-base">{p.title}</span>
+		</div>
+		<p class="text-accent-foreground text-sm">{p.description}</p>
+		<div class="flex flex-wrap items-center gap-2">
+			{p.tags.map((tag) => <TechBadge name={tag} />)}
+		</div>
+	</div>
+
+</button>
