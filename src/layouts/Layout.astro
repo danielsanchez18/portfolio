@@ -1,19 +1,61 @@
 ---
+const title = "Daniel Sánchez — Desarrollador de Software Fullstack"
+const description = "Portfolio de Daniel Sánchez, desarrollador fullstack con +2 años de experiencia en Angular, SpringBoot, NestJS, Next.js y Astro. Especializado en aplicaciones web escalables y e-commerce."
+const canonicalURL = "https://danielsanchez.dev"
 const logoUrl = new URL("/logo-meta-dark.svg", Astro.url).href
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<meta name="keywords" content="Daniel Sánchez, desarrollador fullstack, Angular, SpringBoot, NestJS, Next.js, Astro, portfolio, programador Perú" />
+		<meta name="author" content="Daniel Sánchez" />
+		<meta name="robots" content="index, follow" />
+		<link rel="canonical" href={canonicalURL} />
+
+		<!-- Open Graph -->
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={logoUrl} />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:type" content="website" />
+		<meta property="og:locale" content="es_PE" />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={logoUrl} />
+
+		<!-- Icons -->
 		<link rel="icon" type="image/svg+xml" href="/logo-meta-dark.svg" data-theme-icon />
 		<link rel="apple-touch-icon" href="/logo-meta-dark.svg" />
-		<meta property="og:image" content={logoUrl} />
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:image" content={logoUrl} />
 		<meta name="generator" content={Astro.generator} />
-		<title>Daniel Sánchez - Software Engineer</title>
+
+		<!-- JSON-LD Structured Data -->
+		<script type="application/ld+json">
+		{
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "Daniel Sánchez",
+			"jobTitle": "Desarrollador de Software Fullstack",
+			"url": {canonicalURL},
+			"sameAs": [
+				"https://github.com/danielsanchez18",
+				"https://www.linkedin.com/in/dsanchezdev/"
+			],
+			"knowsAbout": ["Angular", "Spring Boot", "NestJS", "Next.js", "Astro", "PostgreSQL", "MySQL", "TypeScript", "Tailwind CSS"],
+			"worksFor": {
+				"@type": "Organization",
+				"name": "FoxCode"
+			}
+		}
+		</script>
+
 		<script is:inline>
 			const _theme = localStorage.getItem("theme")
 			const _isDark = _theme === "dark" || (!_theme && window.matchMedia("(prefers-color-scheme: dark)").matches)

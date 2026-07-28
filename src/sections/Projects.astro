@@ -71,7 +71,9 @@ const featured: Project[] = [
         <div class="flex justify-center">
             <button
                 id="toggle-projects"
-                class="bg-primary/5 hover:bg-primary/15 backdrop-blur-sm text-accent-foreground px-4 py-2 text-sm rounded-full border z-10"
+                class="bg-primary/5 hover:bg-primary/15 backdrop-blur-sm text-accent-foreground px-4 py-2 text-sm rounded-full border z-10 "
+                aria-label="Mostrar más proyectos"
+                aria-expanded="false"
             >
                 Ver más
             </button>
@@ -88,5 +90,6 @@ const featured: Project[] = [
         const expanded = btn.textContent === "Ver menos"
         items.forEach((el) => el.classList.toggle("hidden", expanded))
         btn.textContent = expanded ? "Ver más" : "Ver menos"
+        btn.setAttribute("aria-expanded", String(!expanded))
     })
 </script>

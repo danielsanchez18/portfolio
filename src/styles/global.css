@@ -10,6 +10,7 @@
     --font-mono: 'Space Mono', monospace;
     --font-heading: 'Inter Tight', sans-serif;
     --font-sans: 'Inter Tight', sans-serif;
+    --duration-400: 400ms;
     --color-sidebar-ring: var(--sidebar-ring);
     --color-sidebar-border: var(--sidebar-border);
     --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
@@ -134,4 +135,9 @@
   html::-webkit-scrollbar {
     display: none;
     }
+  button {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: var(--duration-400);
+  }
 }

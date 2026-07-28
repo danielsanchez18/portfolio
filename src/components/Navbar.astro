@@ -2,23 +2,23 @@
 import { NavActions } from "./NavActions"
 ---
 
-<nav class="fixed w-full px-4 py-3 z-50">
+<nav class="fixed w-full px-4 py-3 z-50" aria-label="Navegación principal">
 
     <div 
         class="
         bg-accent rounded-full w-full max-w-4xl mx-auto pl-5 px-3 py-2 flex items-center gap-3 border">
     
         
-        <a href="#proyectos" class="text-sm hover:underline">
+        <a href="#proyectos" class="text-sm hover:underline" aria-label="Ir a proyectos">
             Proyectos
         </a>
         
-        <a href="#experiencia" class="text-sm hover:underline">
+        <a href="#experiencia" class="text-sm hover:underline" aria-label="Ir a experiencia">
             Experiencia
         </a>
     
-        <a href="#blog" class="text-sm hover:underline">
-            Blog
+        <a href="#blog" class="text-sm hover:underline" aria-label="Ir al blog / sobre mí">
+            Sobre mí
         </a>
     
         <NavActions client:load />

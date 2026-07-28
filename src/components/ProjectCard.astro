@@ -17,9 +17,9 @@ export interface Props {
 const { project: p } = Astro.props
 ---
 
-<button class="
+<article class="
 	bg-primary/2 dark:bg-primary/5 hover:bg-primary/5 dark:hover:bg-primary/8 backdrop-blur-sm text-accent-foreground p-3 text-sm 
-	rounded-3xl border text-start transition flex flex-col h-full
+	rounded-3xl border text-start flex flex-col h-full
 ">
 
 	{p.thumbnail ? (
@@ -39,4 +39,4 @@ const { project: p } = Astro.props
 		</div>
 	</div>
 
-</button>
+</article>
