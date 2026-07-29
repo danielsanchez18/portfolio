@@ -1,3 +1,7 @@
+---
+import { Download } from "lucide-react";
+---
+
 <section class="w-full pt-20">
     <div class="w-full max-w-4xl mx-auto px-5 grid grid-cols-[1fr_auto] items-center h-80 sm:h-100">
 
@@ -19,14 +23,15 @@
             <div class="flex items-center gap-x-2">
                 <a href="#proyectos" class="
                     bg-primary/5 hover:bg-primary/15 backdrop-blur-sm text-accent-foreground px-4 py-2 text-sm rounded-full
-                    border z-10 inline-block transition-colors duration-400
+                    border z-10 inline-flex transition-colors duration-400 items-center gap-x-2
                     " aria-label="Ver proyectos destacados">
                     Ver Proyectos
                 </a>
-                <a href="/cv-daniel-sanchez.pdf" target="_blank" rel="noopener noreferrer" class="
+                <a href="/cv/Juan_Daniel_Sánchez_Pisfil_CV.pdf" target="_blank" rel="noopener noreferrer" class="
                     bg-primary/5 hover:bg-primary/15 backdrop-blur-sm text-accent-foreground px-4 py-2 text-sm rounded-full
-                    border z-10 inline-block transition-colors duration-400
+                    border z-10 inline-flex transition-colors duration-400 items-center gap-x-2
                     " aria-label="Descargar currículum vitae">
+                    <Download className="size-4" />
                     Descargar CV
                 </a>
             </div>
