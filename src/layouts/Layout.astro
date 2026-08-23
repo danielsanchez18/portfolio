@@ -1,8 +1,9 @@
 ---
 const title = "Daniel Sánchez — Desarrollador de Software Fullstack"
-const description = "Portfolio de Daniel Sánchez, desarrollador fullstack con +2 años de experiencia en Angular, SpringBoot, NestJS, Next.js y Astro. Especializado en aplicaciones web escalables y e-commerce."
-const canonicalURL = "https://danielsanchez.dev"
-const logoUrl = new URL("/logo-meta-dark.svg", Astro.url).href
+const description = "Desarrollador fullstack con +2 años de experiencia. Especializado en Angular, SpringBoot, NestJS, Next.js y Astro."
+const siteName = "Daniel Sánchez — Portfolio"
+const canonicalURL = "https://daniel-sanchez-blond.vercel.app"
+const ogImage = "https://daniel-sanchez-blond.vercel.app/logo-meta-dark.svg"
 ---
 
 <!doctype html>
@@ -10,6 +11,7 @@ const logoUrl = new URL("/logo-meta-dark.svg", Astro.url).href
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width" />
+		<meta name="theme-color" content="#0a0a0a" />
 		<title>{title}</title>
 		<meta name="description" content={description} />
 		<meta name="keywords" content="Daniel Sánchez, desarrollador fullstack, Angular, SpringBoot, NestJS, Next.js, Astro, portfolio, programador Perú" />
@@ -20,16 +22,17 @@ const logoUrl = new URL("/logo-meta-dark.svg", Astro.url).href
 		<!-- Open Graph -->
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
-		<meta property="og:image" content={logoUrl} />
+		<meta property="og:image" content={ogImage} />
 		<meta property="og:url" content={canonicalURL} />
 		<meta property="og:type" content="website" />
 		<meta property="og:locale" content="es_PE" />
+		<meta property="og:site_name" content={siteName} />
 
 		<!-- Twitter Card -->
 		<meta name="twitter:card" content="summary_large_image" />
 		<meta name="twitter:title" content={title} />
 		<meta name="twitter:description" content={description} />
-		<meta name="twitter:image" content={logoUrl} />
+		<meta name="twitter:image" content={ogImage} />
 
 		<!-- Icons -->
 		<link rel="icon" type="image/svg+xml" href="/logo-meta-dark.svg" data-theme-icon />
@@ -43,7 +46,7 @@ const logoUrl = new URL("/logo-meta-dark.svg", Astro.url).href
 			"@type": "Person",
 			"name": "Daniel Sánchez",
 			"jobTitle": "Desarrollador de Software Fullstack",
-			"url": {canonicalURL},
+			"url": "https://daniel-sanchez-blond.vercel.app",
 			"sameAs": [
 				"https://github.com/danielsanchez18",
 				"https://www.linkedin.com/in/dsanchezdev/"
